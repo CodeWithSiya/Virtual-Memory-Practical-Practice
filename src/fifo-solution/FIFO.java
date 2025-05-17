@@ -1,18 +1,30 @@
 import java.util.Scanner;
 //
-public class FIFO {
-
-
+public class FIFO 
+{
     private static int firstInFirstOut(final Memory frames, final Integer[] pageReferences) {
+        // Initialise the number of page faults.
         int pageFaults = 0;
-        /**
-         * Your code here.
-         * 
-         * Using the frames memory object, process the pageReferences using the FIFO paging algorithm, returning the number of page faults.
-         */
+
+        // Initialise the frame index.
+        int frame = 0;
+
+        // Looping through each element in page references.
+        for (int i = 0; i < pageReferences.length; i++) {
+            int page = pageReferences[i];
+
+            // Check if there is page fault and if the available frame is empty.
+            if (!frames.contains(page)) {
+                // Add the page reference to memory, increment the number of page faults and frame index.
+                frames.put(frame, page); pageFaults++; frame = (frame + 1) % frames.size();
+                System.out.println(page + ": " + frames);
+            } else {
+                // No page fault has occured.
+                System.out.println(page + ": " + "-");
+            }
+        }   
         return pageFaults;
     }
-
 
     public static void main(final String[] args) {
         final Scanner stdIn = new Scanner(System.in);
