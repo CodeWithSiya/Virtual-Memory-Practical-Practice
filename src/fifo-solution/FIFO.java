@@ -26,6 +26,7 @@ public class FIFO
         return pageFaults;
     }
 
+    @SuppressWarnings("resource")
     public static void main(final String[] args) {
         final Scanner stdIn = new Scanner(System.in);
 

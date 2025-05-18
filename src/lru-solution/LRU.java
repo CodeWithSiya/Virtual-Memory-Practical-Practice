@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class LRU 
 {
     private static int leastRecentlyUsed(final Memory frames, final Integer[] pageReferences) {
-        // Initialise the number of page faults.
+        // Initialise the number of page faults and frame pointer.
         int pageFaults = 0;
-
         return pageFaults;
     }
 
+    @SuppressWarnings("resource")
     public static void main(final String[] args) {
         final Scanner stdIn = new Scanner(System.in);
 

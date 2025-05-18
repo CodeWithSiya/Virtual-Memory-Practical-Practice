@@ -64,6 +64,7 @@ public class OPT
         return victim;
     }
 
+    @SuppressWarnings("resource")
     public static void main(final String[] args) {
         final Scanner stdIn = new Scanner(System.in);
 
