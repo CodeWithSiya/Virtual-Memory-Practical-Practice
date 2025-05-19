@@ -28,12 +28,13 @@ public class Clock
                         // Put the replace the victim frame, increment the frame pointer and increment the number of faults.
                         frames.put(frame, page); 
                         usedBits[frame] = 1;
+                        frame = (frame + 1) % frames.size();
                         break;
                     } else {
                         // Give a second chance.
                         usedBits[frame] = 0;
+                        frame = (frame + 1) % frames.size();
                     }
-                    frame = (frame + 1) % frames.size();
                 } 
                 pageFaults++; 
                 System.out.println(page + ": " + frames); 
